@@ -1,0 +1,30 @@
+﻿<form id="formBeneficiario" method="post">
+
+    <div class="row">
+
+        <input type="hidden" id="IdBenef" />
+
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="CPFBenef">CPF:</label>
+                <input required="required" type="text" class="form-control" id="CPFBenef" name="CPFBenef" maxlength="14">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="NomeBenef">Nome:</label>
+                <input required="required" type="text" class="form-control" id="NomeBenef" name="NomeBenef" placeholder="Ex.: João" maxlength="50">
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group" style="padding-top: 25px;">
+                <button type="button" class="btn btn-success" style="width:70px;" onclick="incluirBeneficiario()">Incluir</button>
+            </div>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/listBeneficiarios")
+    <table id="gridBeneficiarios" class="table"></table>
+</form>

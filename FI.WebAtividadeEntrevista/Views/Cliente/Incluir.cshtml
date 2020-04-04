@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Cadastrar Cliente";
+}
+@section scripts{
+
+    <script src="~/Scripts/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>
+
+    <script>
+        var urlPost = '@Url.Action("Incluir", "Cliente", new { area = "" })';
+
+        var urlInclusaoBenef = '@Url.Action("IncluirAlterarBeneficiario", "Cliente", new { area = "" })';
+        var urlAlteracaoBenef = '@Url.Action("IncluirAlterarBeneficiario", "Cliente", new { area = "" })';
+        var urlBeneficiarioList = '@Url.Action("BeneficiarioList", "Cliente", new { area = "" })';
+        var urlExclusaoBenef = '@Url.Action("ExcluirBeneficiario", "Cliente", new { area = "" })';
+
+    </script>
+    @Scripts.Render("~/bundles/clientes")
+}
+<h2>@Html.Raw(ViewBag.Title)</h2>
+@Html.Partial("Forms")

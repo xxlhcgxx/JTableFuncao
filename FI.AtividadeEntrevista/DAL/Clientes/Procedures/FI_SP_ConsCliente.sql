@@ -1,0 +1,15 @@
+﻿/* Nome da Procedure = FI_SP_ConsCliente */
+
+If Object_ID('FI_SP_ConsCliente') Is Null
+    Exec sp_executesql N'Create Procedure FI_SP_ConsCliente As Set Nocount On';
+Go
+
+Alter Procedure FI_SP_ConsCliente
+	@ID BIGINT
+AS
+BEGIN
+	IF(ISNULL(@ID,0) = 0)
+		SELECT NOME, SOBRENOME, NACIONALIDADE, CEP, ESTADO, CIDADE, LOGRADOURO, EMAIL, TELEFONE, dbo.FI_FN_FormatarCPF(CPF) CPF, ID FROM CLIENTES WITH(NOLOCK)
+	ELSE
+		SELECT NOME, SOBRENOME, NACIONALIDADE, CEP, ESTADO, CIDADE, LOGRADOURO, EMAIL, TELEFONE, dbo.FI_FN_FormatarCPF(CPF) CPF, ID FROM CLIENTES WITH(NOLOCK) WHERE ID = @ID
+END
